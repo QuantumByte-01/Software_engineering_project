@@ -5,10 +5,10 @@ function Header() {
     <div>
       <header className="bg-white">
         <div className="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
-          <div className="flex h-24 items-center justify-between"> {/* Increased height from h-16 to h-24 */}
+          <div className="flex h-24 items-center justify-between">
             <div className="flex-1 md:flex md:items-center md:gap-12">
               <a className="block text-teal-600" href="#">
-                <img src="\logo.jpg" alt="Logo" className="h-40 w-50" />
+                <img src="/logo.jpg" alt="Logo" className="h-40 w-50" />
               </a>
             </div>
 
@@ -31,7 +31,6 @@ function Header() {
                       Explore 
                     </a>
                   </li>
-
                   <li>
                     <a
                       className="text-gray-500 transition hover:text-teal-600 hover:scale-110 duration-300"
@@ -40,7 +39,6 @@ function Header() {
                       About Us
                     </a>
                   </li>
-
                   <li>
                     <a
                       className="text-gray-500 transition hover:text-teal-600 hover:scale-110 duration-300"
@@ -60,7 +58,6 @@ function Header() {
                   >
                     Login
                   </a>
-
                   <div className="hidden sm:flex">
                     <a
                       className="rounded-md bg-gray-100 px-5 py-2.5 text-sm font-medium text-teal-600 transition hover:bg-teal-600 hover:text-white hover:shadow-lg duration-300"
