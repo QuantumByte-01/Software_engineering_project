@@ -5,9 +5,13 @@ import { Helmet } from 'react-helmet'
 
 import Navbar from '../components/navbar'
 import Footer from '../components/footer'
+import ThreeDModelViewer from './threed'; // Import your 3D model viewer
+
 import './model.css'
 
 const Model = (props) => {
+  const modelUrl = './a_low_poly_house/scene.gltf'; // Update this to the actual path of your model
+
   return (
     <div className="model-container10">
       <Helmet>
@@ -85,6 +89,7 @@ const Model = (props) => {
         }
         rootClassName="navbarroot-class-name2"
       ></Navbar>
+
       <div className="model-hero section-container">
         <div className="model-contents">
           <div className="model-contentstexty">
@@ -144,6 +149,7 @@ const Model = (props) => {
                 <option value="Option 3">Option 3</option>
               </select>
             </div>
+
             <div className="model-calculate-price">
               <button type="button" className="model-button button">
                 CALCULATE PRICE
@@ -159,15 +165,14 @@ const Model = (props) => {
             </div>
           </div>
           <div className="model-model">
-            <img
-              alt="image23271449"
-              src="/house%20with%20hand-600h.jpg"
-              className="model-image"
-            />
+            {/* Add the 3D model viewer here */}
+            <ThreeDModelViewer modelUrl={modelUrl} />
           </div>
         </div>
       </div>
-      <Footer
+
+
+      <Footer 
         text={
           <Fragment>
             <span className="model-text36">
@@ -293,7 +298,7 @@ const Model = (props) => {
         rootClassName="footerroot-class-name"
       ></Footer>
     </div>
-  )
+  );
 }
 
-export default Model
+export default Model;
