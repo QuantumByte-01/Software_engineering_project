@@ -1,4 +1,3 @@
-// src/components/Navbar.js
 import React, { Fragment, useState, useEffect } from 'react';
 import { GoogleLogin } from '@react-oauth/google';
 import { jwtDecode } from 'jwt-decode';
@@ -10,7 +9,8 @@ const Navbar = (props) => {
   const [user, setUser] = useState(null);
 
   useEffect(() => {
-    // Check if user data is stored in sessionStorage on component mount
+    //if there is an existing login, ensures that every page's navbar mirrors the same
+    //uses crededntials of user obtained when they had logged in
     const savedUser = sessionStorage.getItem('user');
     if (savedUser) {
       setUser(JSON.parse(savedUser));
@@ -19,8 +19,10 @@ const Navbar = (props) => {
 
   const handleLoginSuccess = (credentialResponse) => {
     const decoded = jwtDecode(credentialResponse.credential);
+    //obtains credentials of logged in user upon successful login
     setUser(decoded);
     sessionStorage.setItem('user', JSON.stringify(decoded));
+    //stores user data upon a successful login
   };
 
   const handleLogout = () => {

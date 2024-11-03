@@ -1,6 +1,5 @@
-import React, { Fragment } from 'react'
-import { Link } from 'react-router-dom'
-
+import React, { useState, Fragment } from 'react'
+import { Link, useHistory } from 'react-router-dom'
 import { Helmet } from 'react-helmet'
 
 import Navbar from '../components/navbar'
@@ -8,6 +7,39 @@ import Footer from '../components/footer'
 import './survey.css'
 
 const Survey = (props) => {
+  const [landscape, setLandscape] = useState('')
+  const [houseType, setHouseType] = useState('')
+  const [numRooms, setNumRooms] = useState('')
+  const history = useHistory()
+
+  const handleLandscapeChange = (value) => {
+    //holds value kept in the landscape question
+    setLandscape(value)
+  }
+
+  const handleHouseTypeChange = (value) => {
+    //holds option selected in house type question
+    setHouseType(value)
+  }
+
+  const handleNumRoomsChange = (value) => {
+    //holds option selected in no. of rooms question
+    setNumRooms(value)
+  }
+
+  const handleSubmit = () => {
+    // Answers to the questions stored in this survey data variable
+    const surveyData = {
+      landscape,
+      houseType,
+      numRooms,
+    }
+    localStorage.setItem('surveyData', JSON.stringify(surveyData))
+    //answers stored locally
+    // history to the model page
+    history.push('/model');
+  }
+
   return (
     <div className="survey-container1">
       <Helmet>
@@ -85,88 +117,79 @@ const Survey = (props) => {
         }
         rootClassName="navbarroot-class-name1"
       ></Navbar>
+      
       <div className="survey-container2">
         <div className="survey-instructions">
           <span className="survey-text24">
-            <span className="survey-text25">INSTRUCTIONS</span>
-            <span> :</span>
-            <br></br>
-            <span>Read Each Question Carefully</span>
-            <br></br>
-            <span>Answer Thoroughly</span>
-            <br></br>
-            <span>Select All Relevant Options</span>
-            <br></br>
-            <span>Use the “Other” Option if Needed</span>
-            <br></br>
-            <span>Submit When Finished</span>
+            <span className="survey-text25">INSTRUCTIONS</span>:<br />
+            <span>Read Each Question Carefully</span><br />
+            <span>Answer Thoroughly</span><br />
+            <span>Select All Relevant Options</span><br />
+            <span>Use the “Other” Option if Needed</span><br />
+            <span>Submit When Finished</span>
           </span>
         </div>
+
+        {/* Landscape Question */}
         <div className="survey-landscape">
           <span>Q. ENTER LANDSCAPE FOR THE HOUSE?</span>
         </div>
         <div className="survey-placeholder">
           <input
             type="text"
-            placeholder="placeholder"
+            placeholder="Enter landscape"
             className="survey-textinput input"
+            value={landscape}
+            onChange={(e) => handleLandscapeChange(e.target.value)}
           />
         </div>
+
+        {/* House Type Question */}
         <div className="survey-type">
-          <span className="survey-text38">
-            Q. SELECT WHAT TYPE OF HOUSE YOU PREFER?
-          </span>
+          <span className="survey-text38">Q. SELECT WHAT TYPE OF HOUSE YOU PREFER?</span>
         </div>
         <div className="survey-housetypes">
-          <button type="button" className="survey-button10 button">
-            single storey building
-          </button>
-          <button type="button" className="survey-button11 button">
-            two storey building
-          </button>
-          <button type="button" className="survey-button12 button">
-            three storey building 
-          </button>
-          <button type="button" className="survey-button13 button">
-                       duplex
-          </button>
-          <button type="button" className="survey-button14 button">
-                    quadruplex
-          </button>
-          <button type="button" className="survey-button15 button">
-                        triplex
-          </button>
-          <button type="button" className="survey-button16 button">
-                          villa
-          </button>
-          <button type="button" className="survey-button17 button">
-                      bungalow
-          </button>
+          {['single storey building', 'two storey building', 'three storey building', 'duplex', 'quadruplex', 'triplex', 'villa', 'bungalow'].map((type) => (
+            <button
+              key={type}
+              type="button"
+              className={`survey-button button ${houseType === type ? 'selected' : ''}`}
+              onClick={() => handleHouseTypeChange(type)}
+            >
+              {type}
+            </button>
+          ))}
         </div>
+
+        {/* Number of Rooms Question */}
         <div className="survey-rooms">
           <div className="survey-container3">
-            <span className="survey-text39">
-              Q. NO. OF ROOMS FOR  EACH FLOOR
-            </span>
+            <span className="survey-text39">Q. NO. OF ROOMS FOR EACH FLOOR</span>
           </div>
         </div>
         <div className="survey-choicerooms">
           <div className="survey-container4">
-            <button type="button" className="survey-button18 button">
-              1
-            </button>
-            <button type="button" className="survey-button19 button">
-              2
-            </button>
-            <button type="button" className="survey-button20 button">
-              3
-            </button>
-            <button type="button" className="survey-button21 button">
-              4
-            </button>
+            {[1, 2, 3, 4].map((num) => (
+              <button
+                key={num}
+                type="button"
+                className={`survey-button button ${numRooms === num ? 'selected' : ''}`}
+                onClick={() => handleNumRoomsChange(num)}
+              >
+                {num}
+              </button>
+            ))}
           </div>
         </div>
+
+        {/* Submit Button */}
+        <div className="survey-submit-container">
+          <button type="button" className="survey-submit-button" onClick={handleSubmit}>
+            Submit
+          </button>
+        </div>
       </div>
+
       <Footer
         text={
           <Fragment>

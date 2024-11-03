@@ -6,6 +6,54 @@
   flex-direction: column;
   justify-content: flex-start;
 }
+
+.survey-housetypes .button,
+.survey-choicerooms .button {
+  padding: 10px 20px;
+  margin: 5px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: 2px solid #4CAF50;
+  cursor: pointer;
+  background-color: white;
+  color: #4CAF50;
+  transition: background-color 0.3s ease;
+  width: 100%;
+  max-width: 200px;
+  text-align: left; /* Align text left for better readability */
+}
+
+.survey-housetypes .button:hover,
+.survey-choicerooms .button:hover {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.survey-submit-button {
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  background-color: #4CAF50;
+  color: #fff;
+  transition: background-color 0.3s ease;
+  margin-bottom: 20px;
+  margin-left: 70px;
+}
+
+.survey-submit-button:hover {
+  background-color: white;
+  color: white;
+  border: 1px solid #45a049;
+}
+
+.selected {
+  background-color: #4CAF50 !important;
+  color: white !important; /* Ensure text is visible */
+  border: 1px solid #4CAF50;
+}
+
 .survey-text10 {
   width: var(--dl-size-size-medium);
   display: inline-block;
@@ -165,7 +213,7 @@
   height: auto;
   display: flex;
   align-self: flex-start;
-  margin-left: var(--dl-space-space-threeunits);
+  margin-left: 70px;
   margin-bottom: var(--dl-space-space-oneandhalfunits);
   flex-direction: column;
   justify-content: flex-start;
@@ -193,7 +241,7 @@
   height: auto;
   display: flex;
   align-items: flex-start;
-  margin-left: var(--dl-space-space-sixunits);
+  margin-left: 70px;
   margin-bottom: var(--dl-space-space-oneandhalfunits);
   flex-direction: column;
 }
@@ -271,8 +319,7 @@
   height: auto;
   display: flex;
   align-items: flex-start;
-  margin-left: var(--dl-space-space-sixunits);
-  margin-bottom: var(--dl-space-space-unit);
+  margin-left: 70px;
   flex-direction: column;
 }
 .survey-container4 {
