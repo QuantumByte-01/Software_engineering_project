@@ -1,0 +1,11 @@
+Model Information:
+* title:	Simple single house
+* source:	https://sketchfab.com/3d-models/simple-single-house-0afdee66836d47439eca11f2609294e2
+* author:	Dhany Lie (https://sketchfab.com/dhanylie)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Simple single house" (https://sketchfab.com/3d-models/simple-single-house-0afdee66836d47439eca11f2609294e2) by Dhany Lie (https://sketchfab.com/dhanylie) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
