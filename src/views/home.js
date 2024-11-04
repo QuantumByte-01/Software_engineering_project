@@ -348,7 +348,7 @@ const Home = (props) => {
                 <span className="home-text180">
                   <span> WOOD </span>
                   <br></br>
-                  <span>$320</span>
+                  <span>Rs. 40000</span>
                   <br></br>
                 </span>
               </Fragment>
@@ -358,7 +358,7 @@ const Home = (props) => {
                 <span className="home-text185">
                   <span>MARBLE</span>
                   <br></br>
-                  <span>    $490</span>
+                  <span>   Rs. 56000</span>
                   <br></br>
                 </span>
               </Fragment>
@@ -368,7 +368,7 @@ const Home = (props) => {
                 <span className="home-text190">
                   <span>TILES</span>
                   <br></br>
-                  <span>$380</span>
+                  <span>Rs. 40000</span>
                   <br></br>
                 </span>
               </Fragment>

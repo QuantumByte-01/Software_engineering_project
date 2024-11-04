@@ -1,11 +1,7 @@
-.model-container10 {
-  width: 100%;
-  display: flex;
-  min-height: 100vh;
-  align-items: stretch;
-  flex-direction: column;
-  justify-content: flex-start;
+.model-text36, .model-text39/*... other text classes */ {
+  margin-bottom: 10px; /* Adjust as necessary */
 }
+
 .model-text10 {
   width: var(--dl-size-size-medium);
   display: inline-block;
@@ -336,13 +332,32 @@
 .model-text35 {
   max-width: 20%;
 }
-.model-model {
-  flex: 0 0 auto;
-  width: 200px;
-  height: auto;
+
+.model-container10 {
+  width: 100%;
+  min-height: 200%; /* Adjust based on content */
   display: flex;
-  flex-direction: column;
+  flex-direction: column; /* Stack items vertically */
+  align-items: center; /* Center items horizontally */
+  justify-content: flex-start; /* Start from the top */
+  padding: 20px; /* Add padding for spacing */
+  overflow: auto; /* Allow scrolling if needed */
 }
+
+
+.model-model {
+  width: 100%;
+  height: 120%;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+
 .model-image {
   top: -23px;
   right: 0px;
