@@ -1,31 +1,28 @@
-import React, { useState, Fragment } from 'react'
-import { Link, useHistory } from 'react-router-dom'
-import { Helmet } from 'react-helmet'
+import React, { useState, Fragment } from 'react';
+import { Link, useHistory } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
 
-import Navbar from '../components/navbar'
-import Footer from '../components/footer'
-import './survey.css'
+import Navbar from '../components/navbar';
+import Footer from '../components/footer';
+import './survey.css';
 
 const Survey = (props) => {
-  const [landscape, setLandscape] = useState('')
-  const [houseType, setHouseType] = useState('')
-  const [numRooms, setNumRooms] = useState('')
-  const history = useHistory()
+  const [landscape, setLandscape] = useState('');
+  const [houseType, setHouseType] = useState('');
+  const [numRooms, setNumRooms] = useState('');
+  const history = useHistory();
 
   const handleLandscapeChange = (value) => {
-    //holds value kept in the landscape question
-    setLandscape(value)
-  }
+    setLandscape(value);
+  };
 
   const handleHouseTypeChange = (value) => {
-    //holds option selected in house type question
-    setHouseType(value)
-  }
+    setHouseType(value);
+  };
 
   const handleNumRoomsChange = (value) => {
-    //holds option selected in no. of rooms question
-    setNumRooms(value)
-  }
+    setNumRooms(value);
+  };
 
   const handleSubmit = () => {
     // Answers to the questions stored in this survey data variable
@@ -33,12 +30,24 @@ const Survey = (props) => {
       landscape,
       houseType,
       numRooms,
-    }
-    localStorage.setItem('surveyData', JSON.stringify(surveyData))
-    //answers stored locally
-    // history to the model page
+    };
+
+    // Generate the model URL based on user input
+    let modelUrl = '/modern_house1/scene.gltf'; // default model
+
+    if (houseType === 'single storey building') {
+      modelUrl = '/autumn-house/scene.gltf';
+    } else if (houseType === 'duplex') {
+      modelUrl = '/a_low_poly_house/scene.gltf';
+      
+    } // Add more conditions as needed
+
+    surveyData.modelUrl = modelUrl; // Save the model URL in survey data
+    localStorage.setItem('surveyData', JSON.stringify(surveyData));
+
+    // Navigate to the model page
     history.push('/model');
-  }
+  };
 
   return (
     <div className="survey-container1">
@@ -47,76 +56,26 @@ const Survey = (props) => {
         <meta property="og:title" content="Survey - Mobillio Online Store" />
       </Helmet>
       <Navbar
-        text={
-          <Fragment>
-            <span className="survey-text10">HOME</span>
-          </Fragment>
-        }
-        text1={
-          <Fragment>
-            <span className="survey-text11 navbar-link">ABOUT US</span>
-          </Fragment>
-        }
-        text2={
-          <Fragment>
-            <span className="survey-text12 navbar-link">WISHLIST</span>
-          </Fragment>
-        }
-        text3={
-          <Fragment>
-            <span className="survey-text13 navbar-link">CONTACT</span>
-          </Fragment>
-        }
-        text4={
-          <Fragment>
-            <span className="survey-text14">SHOP</span>
-          </Fragment>
-        }
-        text5={
-          <Fragment>
-            <span className="survey-text15">LOOKBOOK</span>
-          </Fragment>
-        }
-        text6={
-          <Fragment>
-            <span className="survey-text16">SPECIAL</span>
-          </Fragment>
-        }
-        text7={
-          <Fragment>
-            <span className="survey-text17">ABOUT</span>
-          </Fragment>
-        }
-        text8={
-          <Fragment>
-            <span className="survey-text18">BLOG</span>
-          </Fragment>
-        }
-        text9={
-          <Fragment>
-            <span className="survey-text19">CONTACT</span>
-          </Fragment>
-        }
-        button={
-          <Fragment>
-            <span className="survey-text20">Register/Login</span>
-          </Fragment>
-        }
+        text={<span className="survey-text10">HOME</span>}
+        text1={<span className="survey-text11 navbar-link">ABOUT US</span>}
+        text2={<span className="survey-text12 navbar-link">WISHLIST</span>}
+        text3={<span className="survey-text13 navbar-link">CONTACT</span>}
+        text4={<span className="survey-text14">SHOP</span>}
+        text5={<span className="survey-text15">LOOKBOOK</span>}
+        text6={<span className="survey-text16">SPECIAL</span>}
+        text7={<span className="survey-text17">ABOUT</span>}
+        text8={<span className="survey-text18">BLOG</span>}
+        text9={<span className="survey-text19">CONTACT</span>}
+        button={<span className="survey-text20">Register/Login</span>}
         logoCenter={
-          <Fragment>
-            <span className="survey-logo-center navbar-logo-title">
-              <span className="survey-text21">CRAFTING COMFORT</span>
-              <br></br>
-            </span>
-          </Fragment>
+          <span className="survey-logo-center navbar-logo-title">
+            <span className="survey-text21">CRAFTING COMFORT</span>
+            <br></br>
+          </span>
         }
-        logoCenter1={
-          <Fragment>
-            <span className="survey-text23">MOBILLIO</span>
-          </Fragment>
-        }
+        logoCenter1={<span className="survey-text23">MOBILLIO</span>}
         rootClassName="navbarroot-class-name1"
-      ></Navbar>
+      />
       
       <div className="survey-container2">
         <div className="survey-instructions">
@@ -191,132 +150,42 @@ const Survey = (props) => {
       </div>
 
       <Footer
-        text={
-          <Fragment>
-            <span className="survey-text40">
-              <span>4517 Washington Ave. Manchester, Kentucky 39495,</span>
-              <span>United States</span>
-            </span>
-          </Fragment>
-        }
-        text1={
-          <Fragment>
-            <span className="survey-text43">584135</span>
-          </Fragment>
-        }
+        text={<span className="survey-text40">4517 Washington Ave. Manchester, Kentucky 39495, United States</span>}
+        text1={<span className="survey-text43">584135</span>}
         text2={
-          <Fragment>
-            <span className="survey-text44">
-              <span>Ph: +91 6363996166</span>
-              <br className="survey-text46"></br>
-              <br></br>
-              <span>E-mail: info@iiitr.ac.in</span>
-              <br className="survey-text49"></br>
-              <br></br>
-            </span>
-          </Fragment>
+          <span className="survey-text44">
+            Ph: +91 6363996166
+            <br />
+            E-mail: info@iiitr.ac.in
+          </span>
         }
-        text3={
-          <Fragment>
-            <span className="survey-text51">Categories</span>
-          </Fragment>
-        }
-        text4={
-          <Fragment>
-            <span className="survey-text52">Bungalow</span>
-          </Fragment>
-        }
-        text5={
-          <Fragment>
-            <span className="survey-text53">Wooden villa</span>
-          </Fragment>
-        }
-        text6={
-          <Fragment>
-            <span className="survey-text54">Villa</span>
-          </Fragment>
-        }
-        text7={
-          <Fragment>
-            <span className="survey-text55">Home</span>
-          </Fragment>
-        }
-        text8={
-          <Fragment>
-            <span className="survey-text56">Apartments</span>
-          </Fragment>
-        }
-        text9={
-          <Fragment>
-            <span className="survey-text57">Duplex</span>
-          </Fragment>
-        }
-        text10={
-          <Fragment>
-            <span className="survey-text58">Company</span>
-          </Fragment>
-        }
-        text11={
-          <Fragment>
-            <span className="survey-text59">Shop</span>
-          </Fragment>
-        }
-        text12={
-          <Fragment>
-            <span className="survey-text60">Lookbook</span>
-          </Fragment>
-        }
-        text13={
-          <Fragment>
-            <span className="survey-text61">Specials</span>
-          </Fragment>
-        }
-        text14={
-          <Fragment>
-            <span className="survey-text62">About Us</span>
-          </Fragment>
-        }
-        text15={
-          <Fragment>
-            <span className="survey-text63">Blog</span>
-          </Fragment>
-        }
-        text16={
-          <Fragment>
-            <span className="survey-text64">Resources</span>
-          </Fragment>
-        }
-        text17={
-          <Fragment>
-            <span className="survey-text65">Contact us</span>
-          </Fragment>
-        }
-        text18={
-          <Fragment>
-            <span className="survey-text66">Survey</span>
-          </Fragment>
-        }
-        text19={
-          <Fragment>
-            <span className="survey-text67">Material pricing</span>
-          </Fragment>
-        }
+        text3={<span className="survey-text51">Categories</span>}
+        text4={<span className="survey-text52">Bungalow</span>}
+        text5={<span className="survey-text53">Wooden villa</span>}
+        text6={<span className="survey-text54">Villa</span>}
+        text7={<span className="survey-text55">Home</span>}
+        text8={<span className="survey-text56">Apartments</span>}
+        text9={<span className="survey-text57">Duplex</span>}
+        text10={<span className="survey-text58">Company</span>}
+        text11={<span className="survey-text59">Shop</span>}
+        text12={<span className="survey-text60">Lookbook</span>}
+        text13={<span className="survey-text61">Specials</span>}
+        text14={<span className="survey-text62">About Us</span>}
+        text15={<span className="survey-text63">Blog</span>}
+        text16={<span className="survey-text64">Resources</span>}
+        text17={<span className="survey-text65">Contact us</span>}
+        text18={<span className="survey-text66">Survey</span>}
+        text19={<span className="survey-text67">Material pricing</span>}
         text20={
-          <Fragment>
-            <Link to="/model" className="survey-navlink">
-              View page
-            </Link>
-          </Fragment>
+          <Link to="/model" className="survey-navlink">
+            View page
+          </Link>
         }
-        heading={
-          <Fragment>
-            <span className="survey-text68 Heading-3">CONTACT US</span>
-          </Fragment>
-        }
+        heading={<span className="survey-text68 Heading-3">CONTACT US</span>}
         rootClassName="footerroot-class-name1"
-      ></Footer>
+      />
     </div>
-  )
-}
+  );
+};
 
-export default Survey
+export default Survey;
