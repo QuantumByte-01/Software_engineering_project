@@ -7,8 +7,7 @@
   justify-content: flex-start;
 }
 
-.survey-housetypes .button,
-.survey-choicerooms .button {
+.survey-housetypes .button {
   padding: 10px 20px;
   margin: 5px;
   font-size: 16px;
@@ -21,6 +20,46 @@
   width: 100%;
   max-width: 200px;
   text-align: left; /* Align text left for better readability */
+}
+
+.survey-choicerooms .button {
+  padding: 10px 20px;
+  margin: 5px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: 2px solid #4CAF50;
+  cursor: pointer;
+  background-color: white;
+  color: #4CAF50;
+  transition: background-color 0.3s ease;
+  width: 100%;
+  max-width: 80px;
+  justify-content: center;
+}
+
+.survey-choicesofrooms-question {
+  margin-left: 70px;
+  height: 80px;
+}
+
+.survey-choicesofrooms-question .button {
+  padding: 10px 20px;
+  margin: 5px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: 2px solid #4CAF50;
+  cursor: pointer;
+  background-color: white;
+  color: #4CAF50;
+  transition: background-color 0.3s ease;
+  width: 100%;
+  max-width: 80px;
+  justify-content: center;
+}
+
+.survey-choicesofrooms-question .button:hover {
+  background-color: #4CAF50;
+  color: white;
 }
 
 .survey-housetypes .button:hover,
@@ -169,6 +208,8 @@
   width: 100%;
   display: flex;
   align-self: center;
+  margin-top: 140px;
+  margin-bottom: 30px;
   margin-left: var(--dl-space-space-sixunits);
   padding-left: var(--dl-space-space-sixunits);
   flex-direction: column;
@@ -316,7 +357,7 @@
 .survey-choicerooms {
   flex: 0 0 auto;
   width: 100%;
-  height: auto;
+  height: 80px;
   display: flex;
   align-items: flex-start;
   margin-left: 70px;
