@@ -26,6 +26,7 @@ const Model = (props) => {
         <meta property="og:title" content="Model - Mobillio Online Store" />
       </Helmet>
       <Navbar
+
         text={<Fragment><span className="model-text10">HOME</span></Fragment>}
         text1={<Fragment><span className="model-text11 navbar-link">ABOUT US</span></Fragment>}
         text2={<Fragment><span className="model-text12 navbar-link">WISHLIST</span></Fragment>}
@@ -41,6 +42,8 @@ const Model = (props) => {
         logoCenter1={<Fragment><span className="model-text23">MOBILLIO</span></Fragment>}
         rootClassName="navbarroot-class-name2"
       />
+
+    
 
       <div className="model-hero section-container">
         <div className="model-contents">
@@ -116,6 +119,7 @@ const Model = (props) => {
         text20={<Fragment><Link to="/model" className="model-navlink">View page</Link></Fragment>}
         heading={<Fragment><span className="model-text64 Heading-3">CONTACT US</span></Fragment>}
         rootClassName="footerroot-class-name"
+
       />
     </div>
   );

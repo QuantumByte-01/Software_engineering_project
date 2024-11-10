@@ -5,11 +5,19 @@ import { Helmet } from 'react-helmet';
 import Navbar from '../components/navbar';
 import Footer from '../components/footer';
 import './survey.css';
+import { ceil } from 'three/webgpu';
 
 const Survey = (props) => {
   const [landscape, setLandscape] = useState('');
   const [houseType, setHouseType] = useState('');
   const [numRooms, setNumRooms] = useState('');
+  const [ceilHeight, setCeilHeight] = useState('');
+  const [pool, setPool] = useState('');
+  const [balcony, setBalcony] = useState('');
+  const [garage, setGarage] = useState('');
+  const [parking, setParking] = useState('');
+  const [numEntrances, setNumEntrances] = useState('');
+
   const history = useHistory();
 
   const handleLandscapeChange = (value) => {
@@ -24,23 +32,78 @@ const Survey = (props) => {
     setNumRooms(value);
   };
 
+
+  const handleCeilHeightChange = (value) => {
+    setCeilHeight(value);
+  };
+
+  const handlePoolChange = (value) => {
+    setPool(value);
+  };
+
+  const handleBalconyChange = (value) => {
+    setBalcony(value);
+  };
+
+  const handleGarageChange = (value) => {
+    setGarage(value);
+  };
+
+  const handleParkingChange = (value) => {
+    setParking(value);
+  };
+
+  const handleNumEntrancesChange = (value) => {
+    setNumEntrances(value);
+  };
+
+
   const handleSubmit = () => {
     // Answers to the questions stored in this survey data variable
     const surveyData = {
       landscape,
       houseType,
       numRooms,
+
+      ceilHeight,
+      pool,
+      balcony,
+      garage,
+      parking,
+      numEntrances
     };
 
     // Generate the model URL based on user input
-    let modelUrl = '/modern_house1/scene.gltf'; // default model
+    let modelUrl = '/001/scene.gltf'; // default model
 
-    if (houseType === 'single storey building') {
-      modelUrl = '/autumn-house/scene.gltf';
-    } else if (houseType === 'duplex') {
-      modelUrl = '/a_low_poly_house/scene.gltf';
-      
-    } // Add more conditions as needed
+    if(houseType=='Quadruplex') {
+      modelUrl = '/002/scene.gltf';
+    }
+    else if((houseType=='Single Storey' && balcony=='Yes' && parking=='Yes') || (houseType=='Single Storey' && pool=='No' && balcony=='Yes' && garage=='No' && parking=='No')) {
+      modelUrl = '/008/scene.gltf';
+    }
+    else if((houseType=='Single Storey' && parking=='Yes') || (houseType=='Single Storey' && pool=='No' && balcony=='No' && garage=='No' && parking=='Yes') || (houseType=='Single Storey' && pool=='No' && balcony=='Yes' && garage=='No' && parking=='Yes')) {
+      modelUrl = '/004/scene.gltf';
+    }
+    else if(houseType=='Single Storey') {
+      modelUrl = '/005/scene.gltf';
+    }
+    else if(houseType=='Duplex' && pool=='No' && balcony=='No' && garage=='Yes' && parking=='Yes') {
+      modelUrl = '/001/scene.gltf';
+    }
+    else if(houseType=='Villa' && pool=='No' && balcony=='Yes' && garage=='No' && parking=='Yes') {
+      modelUrl = '/003/scene.gltf';
+    } 
+    else if(houseType=='Villa' && pool=='No' && balcony=='No' && garage=='No' && parking=='Yes') {
+      modelUrl = '/006/scene.gltf';
+    }
+    else if(houseType=='Duplex' && pool=='No' && balcony=='Yes' && garage=='No' && parking=='Yes') {
+      modelUrl = '/007/scene.gltf';
+    }
+    else {
+      modelUrl = '/001/scene.gltf';
+    }
+
 
     surveyData.modelUrl = modelUrl; // Save the model URL in survey data
     localStorage.setItem('surveyData', JSON.stringify(surveyData));
@@ -56,26 +119,81 @@ const Survey = (props) => {
         <meta property="og:title" content="Survey - Mobillio Online Store" />
       </Helmet>
       <Navbar
-        text={<span className="survey-text10">HOME</span>}
-        text1={<span className="survey-text11 navbar-link">ABOUT US</span>}
-        text2={<span className="survey-text12 navbar-link">WISHLIST</span>}
-        text3={<span className="survey-text13 navbar-link">CONTACT</span>}
-        text4={<span className="survey-text14">SHOP</span>}
-        text5={<span className="survey-text15">LOOKBOOK</span>}
-        text6={<span className="survey-text16">SPECIAL</span>}
-        text7={<span className="survey-text17">ABOUT</span>}
-        text8={<span className="survey-text18">BLOG</span>}
-        text9={<span className="survey-text19">CONTACT</span>}
-        button={<span className="survey-text20">Register/Login</span>}
-        logoCenter={
-          <span className="survey-logo-center navbar-logo-title">
-            <span className="survey-text21">CRAFTING COMFORT</span>
-            <br></br>
-          </span>
+
+        text={
+          <Fragment>
+            <span className="home-text100">
+              <span className="home-text101">HOME</span>
+              <br className="home-text102"></br>
+            </span>
+          </Fragment>
         }
-        logoCenter1={<span className="survey-text23">MOBILLIO</span>}
-        rootClassName="navbarroot-class-name1"
-      />
+        text1={
+          <Fragment>
+            <span className="home-text103 navbar-link">ABOUT US</span>
+          </Fragment>
+        }
+        text2={
+          <Fragment>
+            <span className="home-text104 navbar-link">WISHLIST</span>
+          </Fragment>
+        }
+        text3={
+          <Fragment>
+            <span className="home-text105 navbar-link">CONTACT</span>
+          </Fragment>
+        }
+        text4={
+          <Fragment>
+            <span className="home-text106">SHOP</span>
+          </Fragment>
+        }
+        text5={
+          <Fragment>
+            <span className="home-text107">LOOKBOOK</span>
+          </Fragment>
+        }
+        text6={
+          <Fragment>
+            <span className="home-text108">SPECIAL</span>
+          </Fragment>
+        }
+        text7={
+          <Fragment>
+            <span className="home-text109">ABOUT</span>
+          </Fragment>
+        }
+        text8={
+          <Fragment>
+            <span className="home-text110">BLOG</span>
+          </Fragment>
+        }
+        text9={
+          <Fragment>
+            <span className="home-text111">CONTACT</span>
+          </Fragment>
+        }
+        button={
+          <Fragment>
+            <span className="home-text112">Register/Login</span>
+          </Fragment>
+        }
+        imageSrc="/butterfly-200h.jpg"
+        logoCenter={
+          <Fragment>
+            <span className="home-logo-center navbar-logo-title">
+              <span className="home-text113">CRAFTING COMFORT</span>
+              <br></br>
+            </span>
+          </Fragment>
+        }
+        logoCenter1={
+          <Fragment>
+            <span className="home-text115">MOBILLIO</span>
+          </Fragment>
+        }
+        rootClassName="navbarroot-class-name3"
+      ></Navbar>
       
       <div className="survey-container2">
         <div className="survey-instructions">
@@ -91,7 +209,8 @@ const Survey = (props) => {
 
         {/* Landscape Question */}
         <div className="survey-landscape">
-          <span>Q. ENTER LANDSCAPE FOR THE HOUSE?</span>
+
+          <span>1. ENTER THE DIMENSIONS OF YOUR PLOT</span>
         </div>
         <div className="survey-placeholder">
           <input
@@ -105,10 +224,11 @@ const Survey = (props) => {
 
         {/* House Type Question */}
         <div className="survey-type">
-          <span className="survey-text38">Q. SELECT WHAT TYPE OF HOUSE YOU PREFER?</span>
+
+          <span className="survey-text38">2. WHAT TYPE OF HOUSE DO YOU PREFER?</span>
         </div>
         <div className="survey-housetypes">
-          {['single storey building', 'two storey building', 'three storey building', 'duplex', 'quadruplex', 'triplex', 'villa', 'bungalow'].map((type) => (
+          {['Single Storey', 'Duplex', 'Triplex', 'Quadruplex', 'Villa'].map((type) => (
             <button
               key={type}
               type="button"
@@ -123,17 +243,141 @@ const Survey = (props) => {
         {/* Number of Rooms Question */}
         <div className="survey-rooms">
           <div className="survey-container3">
-            <span className="survey-text39">Q. NO. OF ROOMS FOR EACH FLOOR</span>
+
+            <span className="survey-text39">3. SELECT THE NO. OF ROOMS YOU REQUIRE</span>
           </div>
         </div>
-        <div className="survey-choicerooms">
+        <div className="survey-choicesofrooms-question">
           <div className="survey-container4">
-            {[1, 2, 3, 4].map((num) => (
+            {[1, 2, 3, 4, 5, 6].map((num) => (
               <button
                 key={num}
                 type="button"
                 className={`survey-button button ${numRooms === num ? 'selected' : ''}`}
                 onClick={() => handleNumRoomsChange(num)}
+              >
+                {num}
+              </button>
+            ))}
+          </div>
+        </div>
+
+
+        {/* Ceiling height question */}
+        <div className="survey-type">
+          <span className="survey-text38">4. WHAT CEILING HEIGHT DO YOU PREFER?</span>
+        </div>
+        <div className="survey-housetypes">
+          {['Standard (9 ft.)', 'High (9-12 ft.)'].map((type) => (
+            <button
+              key={type}
+              type="button"
+              className={`survey-button button ${ceilHeight === type ? 'selected' : ''}`}
+              onClick={() => handleCeilHeightChange(type)}
+            >
+              {type}
+            </button>
+          ))}
+        </div>
+
+        {/* Swimming pool question */}
+        <div className="survey-rooms">
+          <div className="survey-container3">
+            <span className="survey-text39">5. DO YOU REQUIRE A SWIMMING POOL?</span>
+          </div>
+        </div>
+        <div className="survey-choicerooms">
+          <div className="survey-container4">
+            {['Yes', 'No'].map((type) => (
+              <button
+                key={type}
+                type="button"
+                className={`survey-button button ${numRooms === type ? 'selected' : ''}`}
+                onClick={() => handlePoolChange(type)}
+              >
+                {type}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        {/* Balcony question */}
+        <div className="survey-rooms">
+          <div className="survey-container3">
+            <span className="survey-text38">6. DO YOU REQUIRE A BALCONY?</span>
+          </div>
+        </div>
+        <div className="survey-choicerooms">
+          <div className="survey-container4">
+          {['Yes', 'No'].map((type) => (
+            <button
+              key={type}
+              type="button"
+              className={`survey-button button ${balcony === type ? 'selected' : ''}`}
+              onClick={() => handleBalconyChange(type)}
+            >
+              {type}
+            </button>
+          ))}
+          </div>
+        </div>
+
+        {/* Garage question */}
+        <div className="survey-rooms">
+          <div className="survey-container3">
+            <span className="survey-text38">7. DO YOU REQUIRE A GARAGE?</span>
+          </div>
+        </div>
+        <div className="survey-choicerooms">
+          <div className="survey-container4">
+            {['Yes', 'No'].map((type) => (
+              <button
+                key={type}
+                type="button"
+                className={`survey-button button ${garage === type ? 'selected' : ''}`}
+                onClick={() => handleGarageChange(type)}
+              >
+                {type}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        {/* Parking question */}
+        <div className="survey-rooms">
+          <div className="survey-container3">
+            <span className="survey-text38">8. DO YOU REQUIRE AN EXTRA PARKING SPACE?</span>
+          </div>
+        </div>
+        <div className="survey-choicerooms">
+          <div className="survey-container4">
+            {['Yes', 'No'].map((type) => (
+              <button
+                key={type}
+                type="button"
+                className={`survey-button button ${parking === type ? 'selected' : ''}`}
+                onClick={() => handleParkingChange(type)}
+              >
+                {type}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        {/* No. of entrances question */}
+        <div className="survey-rooms">
+          <div className="survey-container3">
+            <span className="survey-text38">9. SELECT THE NO. OF ENTRANCES YOU REQUIRE</span>
+          </div>
+        </div>
+        <div className="survey-choicerooms">
+          <div className="survey-container4">
+            {[1, 2, 3].map((num) => (
+              <button
+                key={num}
+                type="button"
+                className={`survey-button button ${numEntrances === num ? 'selected' : ''}`}
+                onClick={() => handleNumEntrancesChange(num)}
               >
                 {num}
               </button>
