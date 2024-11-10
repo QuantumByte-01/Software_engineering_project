@@ -32,6 +32,7 @@ const Survey = (props) => {
     setNumRooms(value);
   };
 
+
   const handleCeilHeightChange = (value) => {
     setCeilHeight(value);
   };
@@ -56,12 +57,14 @@ const Survey = (props) => {
     setNumEntrances(value);
   };
 
+
   const handleSubmit = () => {
     // Answers to the questions stored in this survey data variable
     const surveyData = {
       landscape,
       houseType,
       numRooms,
+
       ceilHeight,
       pool,
       balcony,
@@ -101,6 +104,7 @@ const Survey = (props) => {
       modelUrl = '/001/scene.gltf';
     }
 
+
     surveyData.modelUrl = modelUrl; // Save the model URL in survey data
     localStorage.setItem('surveyData', JSON.stringify(surveyData));
 
@@ -115,6 +119,7 @@ const Survey = (props) => {
         <meta property="og:title" content="Survey - Mobillio Online Store" />
       </Helmet>
       <Navbar
+
         text={
           <Fragment>
             <span className="home-text100">
@@ -204,6 +209,7 @@ const Survey = (props) => {
 
         {/* Landscape Question */}
         <div className="survey-landscape">
+
           <span>1. ENTER THE DIMENSIONS OF YOUR PLOT</span>
         </div>
         <div className="survey-placeholder">
@@ -218,6 +224,7 @@ const Survey = (props) => {
 
         {/* House Type Question */}
         <div className="survey-type">
+
           <span className="survey-text38">2. WHAT TYPE OF HOUSE DO YOU PREFER?</span>
         </div>
         <div className="survey-housetypes">
@@ -236,6 +243,7 @@ const Survey = (props) => {
         {/* Number of Rooms Question */}
         <div className="survey-rooms">
           <div className="survey-container3">
+
             <span className="survey-text39">3. SELECT THE NO. OF ROOMS YOU REQUIRE</span>
           </div>
         </div>
@@ -253,6 +261,7 @@ const Survey = (props) => {
             ))}
           </div>
         </div>
+
 
         {/* Ceiling height question */}
         <div className="survey-type">
