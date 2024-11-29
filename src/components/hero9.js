@@ -18,7 +18,7 @@ const Hero9 = (props) => {
           <h1 className="hero9-text1 thq-heading-1">
             {props.heading1 ?? (
               <Fragment>
-                <span className="hero9-text7">Welcome to Mobilio</span>
+                <span className="hero9-text7">Welcome to </span>
               </Fragment>
             )}
           </h1>

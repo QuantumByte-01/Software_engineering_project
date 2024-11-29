@@ -31,7 +31,7 @@ const Features1 = (props) => {
             {props.sectionDescription ?? (
               <Fragment>
                 <span className="features1-text19">
-                  Discover the unique features that set Mobilio apart from the
+                  Discover the unique features that set  apart from the
                   rest.
                 </span>
               </Fragment>

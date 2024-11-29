@@ -23,7 +23,7 @@ const Testimonial18 = (props) => {
               {props.content1 ?? (
                 <Fragment>
                   <span className="testimonial18-text23">
-                    I have been buying furniture from Mobilio for years, and I
+                    I have been buying furniture from  for years, and I
                     am always impressed by the quality and unique designs they
                     offer.
                   </span>
@@ -141,7 +141,7 @@ const Testimonial18 = (props) => {
                 {props.review2 ?? (
                   <Fragment>
                     <span className="testimonial18-text24">
-                      Mobilio&apos;s products have transformed my living space
+                      &apos;s products have transformed my living space
                       into a modern and stylish home. I highly recommend their
                       furniture and decorations.
                     </span>
@@ -196,7 +196,7 @@ const Testimonial18 = (props) => {
                 {props.review3 ?? (
                   <Fragment>
                     <span className="testimonial18-text35">
-                      As someone who appreciates good design, Mobilio is my
+                      As someone who appreciates good design,  is my
                       go-to place for all things furniture. Their pieces never
                       disappoint.
                     </span>
@@ -253,9 +253,9 @@ const Testimonial18 = (props) => {
                 {props.review4 ?? (
                   <Fragment>
                     <span className="testimonial18-text37">
-                      I furnished my office with Mobilio&apos;s desks and lamps,
+                      I furnished my office with &apos;s desks and lamps,
                       and my clients always compliment the elegant decor. Thank
-                      you, Mobilio!
+                      you, !
                     </span>
                   </Fragment>
                 )}
