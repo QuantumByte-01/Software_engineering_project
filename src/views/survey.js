@@ -71,9 +71,10 @@ const Survey = (props) => {
     };
 
     // Generate the model URL based on user input
-    let modelUrl = '/001/scene.gltf'; // default model
+    let modelUrl = '/002/scene.gltf'; // default model
 
     if(houseType=='Quadruplex') {
+
       modelUrl = '/002/scene.gltf';
     }
     else if((houseType=='Single Storey' && balcony=='Yes' && parking=='Yes') || (houseType=='Single Storey' && pool=='No' && balcony=='Yes' && garage=='No' && parking=='No')) {

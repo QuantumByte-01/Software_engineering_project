@@ -4,12 +4,12 @@ import { Helmet } from 'react-helmet';
 
 import Navbar from '../components/navbar';
 import Footer from '../components/footer';
-import ThreeDModelViewer from './threed'; // Ensure this is the correct path to your 3D model viewer component
+import ThreeDModelViewer from './threed'; 
 
 import './model.css';
 
 const Model = (props) => {
-  const [modelUrl, setModelUrl] = useState(`${process.env.PUBLIC_URL}/modern_house1/scene.gltf`); // Default URL
+  const [modelUrl, setModelUrl] = useState(`${process.env.PUBLIC_URL}/modern_house1/scene.gltf`);
 
   useEffect(() => {
     const surveyData = JSON.parse(localStorage.getItem('surveyData'));
@@ -22,84 +22,25 @@ const Model = (props) => {
   return (
     <div className="model-container10">
       <Helmet>
-        <title>Model - Mobillio Online Store</title>
-        <meta property="og:title" content="Model - Mobillio Online Store" />
+        <title>Crafting Comfort </title>
+        <meta property="og:title" content="Software Project" />
       </Helmet>
       <Navbar
-        text={
-          <Fragment>
-            <span className="home-text100">
-              <span className="home-text101">HOME</span>
-              <br className="home-text102"></br>
-            </span>
-          </Fragment>
-        }
-        text1={
-          <Fragment>
-            <span className="home-text103 navbar-link">ABOUT US</span>
-          </Fragment>
-        }
-        text2={
-          <Fragment>
-            <span className="home-text104 navbar-link">WISHLIST</span>
-          </Fragment>
-        }
-        text3={
-          <Fragment>
-            <span className="home-text105 navbar-link">CONTACT</span>
-          </Fragment>
-        }
-        text4={
-          <Fragment>
-            <span className="home-text106">SHOP</span>
-          </Fragment>
-        }
-        text5={
-          <Fragment>
-            <span className="home-text107">LOOKBOOK</span>
-          </Fragment>
-        }
-        text6={
-          <Fragment>
-            <span className="home-text108">SPECIAL</span>
-          </Fragment>
-        }
-        text7={
-          <Fragment>
-            <span className="home-text109">ABOUT</span>
-          </Fragment>
-        }
-        text8={
-          <Fragment>
-            <span className="home-text110">BLOG</span>
-          </Fragment>
-        }
-        text9={
-          <Fragment>
-            <span className="home-text111">CONTACT</span>
-          </Fragment>
-        }
-        button={
-          <Fragment>
-            <span className="home-text112">Register/Login</span>
-          </Fragment>
-        }
-        imageSrc="/butterfly-200h.jpg"
-        logoCenter={
-          <Fragment>
-            <span className="home-logo-center navbar-logo-title">
-              <span className="home-text113">CRAFTING COMFORT</span>
-              <br></br>
-            </span>
-          </Fragment>
-        }
-        logoCenter1={
-          <Fragment>
-            <span className="home-text115">MOBILLIO</span>
-          </Fragment>
-        }
-        rootClassName="navbarroot-class-name3"
-      ></Navbar>
+        text={<Fragment><span className="model-text10">HOME</span></Fragment>}
+        text1={<Fragment><span className="model-text11 navbar-link">ABOUT US</span></Fragment>}
+        text2={<Fragment><span className="model-text12 navbar-link">WISHLIST</span></Fragment>}
+        text3={<Fragment><span className="model-text13 navbar-link">CONTACT</span></Fragment>}
+        text4={<Fragment><span className="model-text14">SHOP</span></Fragment>}
+        text5={<Fragment><span className="model-text15">LOOKBOOK</span></Fragment>}
+        text6={<Fragment><span className="model-text16">SPECIAL</span></Fragment>}
+        text7={<Fragment><span className="model-text17">ABOUT</span></Fragment>}
+        text8={<Fragment><span className="model-text18">BLOG</span></Fragment>}
+        text9={<Fragment><span className="model-text19">CONTACT</span></Fragment>}
+        button={<Fragment><span className="model-text20">Register/Login</span></Fragment>}
+        logoCenter={<Fragment><span className="model-logo-center navbar-logo-title">CRAFTING COMFORT</span></Fragment>}
+        logoCenter1={<Fragment><span className="model-text23">MOBILLIO</span></Fragment>}
+        rootClassName="navbarroot-class-name2"
+      />
 
       <div className="model-hero section-container">
         <div className="model-contents">
@@ -151,40 +92,30 @@ const Model = (props) => {
         </div>
       </div>
 
-      <Footer
-        text={<span className="survey-text40">4517 Washington Ave. Manchester, Kentucky 39495, United States</span>}
-        text1={<span className="survey-text43">584135</span>}
-        text2={
-          <span className="survey-text44">
-            Ph: +91 6363996166
-            <br />
-            E-mail: info@iiitr.ac.in
-          </span>
-        }
-        text3={<span className="survey-text51">Categories</span>}
-        text4={<span className="survey-text52">Bungalow</span>}
-        text5={<span className="survey-text53">Wooden villa</span>}
-        text6={<span className="survey-text54">Villa</span>}
-        text7={<span className="survey-text55">Home</span>}
-        text8={<span className="survey-text56">Apartments</span>}
-        text9={<span className="survey-text57">Duplex</span>}
-        text10={<span className="survey-text58">Company</span>}
-        text11={<span className="survey-text59">Shop</span>}
-        text12={<span className="survey-text60">Lookbook</span>}
-        text13={<span className="survey-text61">Specials</span>}
-        text14={<span className="survey-text62">About Us</span>}
-        text15={<span className="survey-text63">Blog</span>}
-        text16={<span className="survey-text64">Resources</span>}
-        text17={<span className="survey-text65">Contact us</span>}
-        text18={<span className="survey-text66">Survey</span>}
-        text19={<span className="survey-text67">Material pricing</span>}
-        text20={
-          <Link to="/model" className="survey-navlink">
-            View page
-          </Link>
-        }
-        heading={<span className="survey-text68 Heading-3">CONTACT US</span>}
-        rootClassName="footerroot-class-name1"
+      <Footer 
+        text={<Fragment><span className="model-text36">4517 Washington Ave. Manchester, Kentucky 39495, United States</span></Fragment>}
+        text1={<Fragment><span className="model-text39">584135</span></Fragment>}
+        text2={<Fragment><span className="model-text40">Ph: +91 6363996166<br />E-mail: info@iiitr.ac.in</span></Fragment>}
+        text3={<Fragment><span className="model-text47">Categories</span></Fragment>}
+        text4={<Fragment><span className="model-text48">Bungalow</span></Fragment>}
+        text5={<Fragment><span className="model-text49">Wooden villa</span></Fragment>}
+        text6={<Fragment><span className="model-text50">Villa</span></Fragment>}
+        text7={<Fragment><span className="model-text51">Home</span></Fragment>}
+        text8={<Fragment><span className="model-text52">Apartments</span></Fragment>}
+        text9={<Fragment><span className="model-text53">Duplex</span></Fragment>}
+        text10={<Fragment><span className="model-text54">Company</span></Fragment>}
+        text11={<Fragment><span className="model-text55">Shop</span></Fragment>}
+        text12={<Fragment><span className="model-text56">Lookbook</span></Fragment>}
+        text13={<Fragment><span className="model-text57">Specials</span></Fragment>}
+        text14={<Fragment><span className="model-text58">About Us</span></Fragment>}
+        text15={<Fragment><span className="model-text59">Blog</span></Fragment>}
+        text16={<Fragment><span className="model-text60">Resources</span></Fragment>}
+        text17={<Fragment><span className="model-text61">Contact us</span></Fragment>}
+        text18={<Fragment><span className="model-text62">Survey</span></Fragment>}
+        text19={<Fragment><span className="model-text63">Material pricing</span></Fragment>}
+        text20={<Fragment><Link to="/model" className="model-navlink">View page</Link></Fragment>}
+        heading={<Fragment><span className="model-text64 Heading-3">CONTACT US</span></Fragment>}
+        rootClassName="footerroot-class-name"
       />
     </div>
   );
