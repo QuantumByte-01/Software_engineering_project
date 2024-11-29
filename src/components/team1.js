@@ -82,7 +82,7 @@ const Team1 = (props) => {
                       {props.member1Content ?? (
                         <Fragment>
                           <span className="team1-text68">
-                            John is the visionary behind Mobilio, with a passion
+                            John is the visionary behind , with a passion
                             for modern design and quality craftsmanship.
                           </span>
                         </Fragment>
@@ -449,7 +449,7 @@ const Team1 = (props) => {
                       {props.member8Content ?? (
                         <Fragment>
                           <span className="team1-text73">
-                            Olivia handles the financial aspects of Mobilio with
+                            Olivia handles the financial aspects of with
                             precision and expertise.
                           </span>
                         </Fragment>

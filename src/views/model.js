@@ -4,12 +4,12 @@ import { Helmet } from 'react-helmet';
 
 import Navbar from '../components/navbar';
 import Footer from '../components/footer';
-import ThreeDModelViewer from './threed'; // Ensure this is the correct path to your 3D model viewer component
+import ThreeDModelViewer from './threed'; 
 
 import './model.css';
 
 const Model = (props) => {
-  const [modelUrl, setModelUrl] = useState(`${process.env.PUBLIC_URL}/modern_house1/scene.gltf`); // Default URL
+  const [modelUrl, setModelUrl] = useState(`${process.env.PUBLIC_URL}/modern_house1/scene.gltf`);
 
   useEffect(() => {
     const surveyData = JSON.parse(localStorage.getItem('surveyData'));
@@ -22,11 +22,10 @@ const Model = (props) => {
   return (
     <div className="model-container10">
       <Helmet>
-        <title>Model - Mobillio Online Store</title>
-        <meta property="og:title" content="Model - Mobillio Online Store" />
+        <title>Crafting Comfort </title>
+        <meta property="og:title" content="Software Project" />
       </Helmet>
       <Navbar
-
         text={<Fragment><span className="model-text10">HOME</span></Fragment>}
         text1={<Fragment><span className="model-text11 navbar-link">ABOUT US</span></Fragment>}
         text2={<Fragment><span className="model-text12 navbar-link">WISHLIST</span></Fragment>}
@@ -42,8 +41,6 @@ const Model = (props) => {
         logoCenter1={<Fragment><span className="model-text23">MOBILLIO</span></Fragment>}
         rootClassName="navbarroot-class-name2"
       />
-
-    
 
       <div className="model-hero section-container">
         <div className="model-contents">
@@ -119,7 +116,6 @@ const Model = (props) => {
         text20={<Fragment><Link to="/model" className="model-navlink">View page</Link></Fragment>}
         heading={<Fragment><span className="model-text64 Heading-3">CONTACT US</span></Fragment>}
         rootClassName="footerroot-class-name"
-
       />
     </div>
   );
